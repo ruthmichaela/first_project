@@ -2,12 +2,12 @@ from django.contrib import admin
 
 # Register your models here.
 # import your model
-from collection.models import Users
+from collection.models import Thing
 
-class UsersAdmin(admin.ModelAdmin):
-	model = Users
+class ThingAdmin(admin.ModelAdmin):
+	model = Thing
 	list_display = ('name', 'description',)
 	prepopulated_fields = {'slug': ('name',)}
 
 	# and register it
-admin.site.register(Users, UsersAdmin)
+admin.site.register(Thing, ThingAdmin)
