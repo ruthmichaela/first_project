@@ -2,6 +2,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
 from collection import views
+from collection.backends import MyRegistrationView
+url(r'^accounts/register/$', 
+	MyRegistrationView.as_view(),
+	name='registration_register'),
+url(r'^accounts/create_thing/$', views.create_thing, 
+	name='registration_create_thing'),
 
 urlpatterns = [
 	url(r'^$', views.index, name='home'),
