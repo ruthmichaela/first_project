@@ -24,7 +24,7 @@ def edit_thing(request, slug):
 		thing = Thing.objects.get(slug=slug)
 			# make sure the logged in user is the owner of the thing
 		if thing.user != request.user:
-		raise Http404
+			raise Http404
 		form_class = ThingForm
 		if request.method == 'POST':
 			form = form_class(data=request.POST, instance=thing)
